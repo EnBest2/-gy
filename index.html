@@ -19,7 +19,7 @@
       font-family: sans-serif;
       margin: 0;
       padding: 20px;
-      background: url('background.jpg') no-repeat center center top;
+      background: url('bg.jpg') no-repeat center center top;
       background-attachment: scroll;
       background-size: cover;
       color: #fff;
@@ -116,7 +116,10 @@ function add() {
   const date = document.getElementById("date").value;
   const category = document.getElementById("category").value;
 
-  if (!title || isNaN(amount) || !date) return;
+  if (!title || isNaN(amount) || !date) {
+    alert("Tölts ki minden mezőt: megnevezés, összeg és dátum!");
+    return;
+}
 
   transactions.push({ title, amount, date, category });
   localStorage.setItem("transactions", JSON.stringify(transactions));
